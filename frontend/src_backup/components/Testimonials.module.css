@@ -1,0 +1,94 @@
+.testimonialSection {
+  margin-top: var(--spacing-2xl);
+  padding: var(--spacing-2xl);
+  background: linear-gradient(135deg, var(--brand-gradient-start) 0%, var(--brand-gradient-end) 100%);
+  border-radius: var(--radius-lg);
+  color: var(--white);
+}
+
+.header {
+  text-align: center;
+  margin-bottom: var(--spacing-2xl);
+}
+
+.header h2 {
+  color: var(--white);
+  font-size: 2rem;
+  margin-bottom: var(--spacing-xs);
+}
+
+.header p {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 1.125rem;
+}
+
+.testimonialGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: var(--spacing-xl);
+}
+
+.testimonialCard {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--white);
+  color: var(--text-primary);
+  padding: var(--spacing-xl);
+  border: none;
+  border-radius: var(--radius-lg);
+}
+
+.quoteIcon {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  color: var(--soft-grey);
+  opacity: 0.5;
+}
+
+.stars {
+  display: flex;
+  gap: 4px;
+  margin-bottom: var(--spacing-md);
+}
+
+.starIcon {
+  color: var(--vibrant-blue);
+}
+
+.text {
+  font-size: 1rem;
+  line-height: 1.6;
+  font-style: italic;
+  margin-bottom: var(--spacing-xl);
+  flex-grow: 1;
+  color: var(--text-secondary);
+}
+
+.profileRow {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+  padding-top: var(--spacing-md);
+  border-top: 1px solid var(--border-color);
+}
+
+.avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.profileRow h4 {
+  font-size: 1rem;
+  color: var(--deep-navy);
+  margin-bottom: 2px;
+}
+
+.role {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  font-weight: 500;
+}

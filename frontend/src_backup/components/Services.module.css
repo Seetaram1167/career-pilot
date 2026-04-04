@@ -1,0 +1,116 @@
+.heroSection {
+  text-align: center;
+  margin-bottom: var(--spacing-2xl);
+  padding: var(--spacing-xl) 0;
+}
+
+.heroSection h1 {
+  font-size: 2.5rem;
+  color: var(--deep-navy);
+  margin-bottom: var(--spacing-xs);
+}
+
+.heroSection p {
+  color: var(--text-secondary);
+  font-size: 1.125rem;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.servicesGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: var(--spacing-xl);
+  align-items: stretch;
+}
+
+.serviceCard {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+  border-top: 4px solid transparent;
+  transition: all var(--transition-normal);
+}
+
+.serviceCard:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-lg);
+}
+
+.iconWrapper {
+  width: 64px;
+  height: 64px;
+  border-radius: var(--radius-md);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: var(--spacing-md);
+}
+
+.targetBadge {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background-color: var(--soft-grey);
+  color: var(--text-secondary);
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 4px 12px;
+  border-radius: var(--radius-full);
+}
+
+.serviceCard h3 {
+  font-size: 1.5rem;
+  color: var(--deep-navy);
+  margin-bottom: var(--spacing-lg);
+  line-height: 1.3;
+}
+
+.featureList {
+  list-style: none;
+  margin-bottom: var(--spacing-2xl);
+  flex-grow: 1;
+}
+
+.featureList li {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  margin-bottom: var(--spacing-sm);
+  font-size: 0.95rem;
+  color: var(--text-primary);
+}
+
+.featureIcon {
+  color: var(--vibrant-blue);
+  flex-shrink: 0;
+}
+
+.priceSection {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: var(--spacing-lg);
+  padding-top: var(--spacing-md);
+  border-top: 1px solid var(--border-color);
+}
+
+.price {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.duration {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+.bookBtn {
+  width: 100%;
+}

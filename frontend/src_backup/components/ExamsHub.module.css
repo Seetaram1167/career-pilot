@@ -1,0 +1,147 @@
+.heroSection {
+  text-align: center;
+  margin-bottom: var(--spacing-2xl);
+  padding: var(--spacing-xl) 0;
+}
+
+.heroSection h1 {
+  font-size: 2.5rem;
+  color: var(--deep-navy);
+  margin-bottom: var(--spacing-xs);
+}
+
+.heroSection p {
+  color: var(--text-secondary);
+  font-size: 1.125rem;
+  max-width: 600px;
+  margin: 0 auto var(--spacing-xl) auto;
+}
+
+.searchBar {
+  display: flex;
+  max-width: 600px;
+  margin: 0 auto;
+  position: relative;
+  box-shadow: var(--shadow-md);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+
+.searchIcon {
+  position: absolute;
+  left: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--text-secondary);
+}
+
+.searchBar input {
+  flex: 1;
+  padding: 16px 16px 16px 48px;
+  border: none;
+  font-family: var(--font-primary);
+  font-size: 1rem;
+}
+
+.searchBar input:focus {
+  outline: none;
+}
+
+.searchBar button {
+  border-radius: 0;
+  padding: 0 var(--spacing-xl);
+}
+
+.examsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: var(--spacing-xl);
+}
+
+.examCard {
+  display: flex;
+  flex-direction: column;
+}
+
+.iconHeader {
+  width: 64px;
+  height: 64px;
+  border-radius: var(--radius-md);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: var(--spacing-md);
+}
+
+.examDetails {
+  flex-grow: 1;
+  margin-bottom: var(--spacing-lg);
+}
+
+.category {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  display: block;
+  margin-bottom: 4px;
+}
+
+.examCard h3 {
+  font-size: 1.5rem;
+  color: var(--deep-navy);
+  margin-bottom: var(--spacing-sm);
+}
+
+.dateRow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--text-primary);
+  font-weight: 500;
+  margin-bottom: var(--spacing-md);
+}
+
+.calendarIcon {
+  color: var(--vibrant-blue);
+}
+
+.statusBadge {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 4px 12px;
+  border-radius: var(--radius-full);
+}
+
+.statusBadge[data-status="Upcoming"] {
+  background-color: rgba(6, 182, 212, 0.1);
+  color: var(--vibrant-blue);
+}
+
+.statusBadge[data-status="Registration Open"] {
+  background-color: rgba(16, 185, 129, 0.1);
+  color: var(--success-green);
+}
+
+.statusBadge[data-status="To Be Announced"] {
+  background-color: var(--soft-grey);
+  color: var(--text-secondary);
+}
+
+.actionRow {
+  display: flex;
+  gap: var(--spacing-sm);
+  padding-top: var(--spacing-md);
+  border-top: 1px solid var(--border-color);
+}
+
+.actionBtn {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.875rem;
+}
