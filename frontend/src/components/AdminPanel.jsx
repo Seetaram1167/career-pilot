@@ -213,14 +213,14 @@ const AdminPanel = () => {
     .stat-card { background: var(--bg-card); padding: 25px; border-radius: 20px; border: 1.5px solid var(--border-main); display: flex; align-items: center; gap: 15px; box-shadow: var(--shadow); }
     .stat-icon { width: 48px; height: 48px; border-radius: 12px; display: flex; align-items: center; justify-content: center; background: rgba(56, 189, 248, 0.1); color: var(--accent); }
     
-    .table-container { background: var(--bg-card); border-radius: 24px; border: 1.5px solid var(--border-main); overflow: hidden; box-shadow: var(--shadow); }
-    .admin-table { width: 100%; border-collapse: collapse; }
+    .table-container { background: var(--bg-card); border-radius: 24px; border: 1.5px solid var(--border-main); overflow-x: auto; overflow-y: hidden; box-shadow: var(--shadow); }
+    .admin-table { width: 100%; border-collapse: collapse; white-space: nowrap; }
     .admin-table th { background: var(--bg-nav); padding: 20px; text-align: left; font-size: 0.75rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.1em; border-bottom: 1px solid var(--border-main); }
     .admin-table td { padding: 18px 20px; border-bottom: 1px solid var(--border-muted); vertical-align: middle; font-size: 0.95rem; color: var(--text-main); }
     .admin-table tr:hover { background: var(--bg-nav); }
     
     .user-info { display: flex; align-items: center; gap: 12px; }
-    .user-avatar { width: 40px; height: 40px; border-radius: 12px; background: var(--bg-nav); display: flex; align-items: center; justify-content: center; color: var(--accent); font-weight: 800; border: 1px solid var(--border-main); }
+    .user-avatar { width: 40px; height: 40px; border-radius: 12px; background: var(--bg-nav); display: flex; align-items: center; justify-content: center; color: var(--accent); font-weight: 800; border: 1px solid var(--border-main); min-width: 40px; }
     
     .badge { padding: 6px 14px; border-radius: 8px; font-weight: 700; font-size: 0.75rem; display: inline-flex; align-items: center; gap: 6px; }
     .badge-blue { background: rgba(56, 189, 248, 0.1); color: var(--accent); border: 1px solid rgba(56, 189, 248, 0.2); }
@@ -233,17 +233,29 @@ const AdminPanel = () => {
     .detail-card { background: var(--bg-nav); padding: 20px; border-radius: 16px; border: 1px solid var(--border-main); transition: transform 0.2s; }
     .detail-card:hover { transform: translateY(-2px); border-color: var(--accent); }
 
-    .modal-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.6); z-index: 9999; display: flex; align-items: center; justify-content: center; backdrop-filter: blur(12px); }
-    .modal-card { background: var(--bg-card); width: 90%; max-width: 650px; border-radius: 32px; padding: 40px; border: 1.5px solid var(--border-main); box-shadow: 0 25px 50px -12px rgba(0,0,0,0.5); }
+    .modal-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.6); z-index: 9999; display: flex; align-items: center; justify-content: center; backdrop-filter: blur(12px); padding: 10px; }
+    .modal-card { background: var(--bg-card); width: 100%; max-width: 650px; border-radius: 32px; padding: 40px; border: 1.5px solid var(--border-main); box-shadow: 0 25px 50px -12px rgba(0,0,0,0.5); }
     .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; }
     .form-group { display: flex; flex-direction: column; gap: 10px; margin-bottom: 24px; }
     .form-group label { font-size: 0.8rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em; }
     .form-group input, .form-group select, .form-group textarea { padding: 14px 18px; border: 1.5px solid var(--border-main); border-radius: 14px; font-size: 1rem; transition: all 0.2s; background: var(--bg-secondary); color: var(--text-main); }
     .form-group input:focus { border-color: var(--accent); outline: none; box-shadow: 0 0 0 4px rgba(56, 189, 248, 0.1); background: var(--bg-card); }
     
+    .action-btns { display: flex; gap: 8px; }
     .action-btns .icon-btn { color: var(--text-muted); }
     .icon-btn:hover { background: var(--bg-nav); color: var(--accent); }
     .icon-btn.delete:hover { color: #f85149; background: rgba(248, 81, 73, 0.1); }
+
+    @media (max-width: 768px) {
+      .admin-container { padding: 20px 12px; }
+      .admin-header { flex-direction: column; align-items: flex-start; gap: 15px; }
+      .nav-tabs { overflow-x: auto; width: 100%; padding-bottom: 4px; border-radius: 8px; }
+      .admin-stats { grid-template-columns: 1fr; gap: 12px; }
+      .form-grid { grid-template-columns: 1fr; gap: 12px; }
+      .form-group.full { grid-column: span 1 !important; }
+      .modal-card { padding: 24px; width: 100%; max-height: 90vh; overflow-y: auto; border-radius: 20px; }
+      .details-grid { grid-template-columns: 1fr; }
+    }
   `;
 
   return (

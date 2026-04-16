@@ -335,8 +335,9 @@ const Header = () => {
         padding: 0 16px;
       }
       .logoText {
-        font-size: 1.4rem;
-        display: none; /* Hide text on very small screens to save space, let logo stand alone */
+        font-size: 1.25rem; /* Keep text visible but scale it down slightly */
+        display: flex;
+        transform: translateY(0);
       }
       .header-actions {
         gap: 8px;
