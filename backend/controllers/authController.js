@@ -218,7 +218,7 @@ const resetPassword = async (req, res) => {
   }
 
   // 1. Verify OTP in local database
-  const OTP = require("../models/OTP");
+  const OTP = require("../models/Otp");
   
   // Find local OTP record
   const otpRecord = await OTP.findOne({ email, otp });
@@ -261,7 +261,7 @@ const verifyRegistration = async (req, res) => {
     return res.status(400).json({ message: "Missing email or OTP" });
   }
 
-  const OTP = require("../models/OTP");
+  const OTP = require("../models/Otp");
   const otpRecord = await OTP.findOne({ email, otp });
 
   if (!otpRecord) {
