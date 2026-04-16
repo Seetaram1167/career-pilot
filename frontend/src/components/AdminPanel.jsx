@@ -203,18 +203,18 @@ const AdminPanel = () => {
       --shadow: 0 10px 30px rgba(0,0,0,0.2);
     }
 
-    .admin-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px; }
+    .admin-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px; margin-top: 10px; gap: 15px; }
     
-    .nav-tabs { display: flex; gap: 8px; margin-bottom: 30px; background: var(--bg-nav); padding: 6px; border-radius: 14px; width: fit-content; border: 1px solid var(--border-main); }
-    .nav-tab { padding: 10px 24px; border-radius: 10px; border: none; background: none; cursor: pointer; font-weight: 600; font-size: 0.9rem; color: var(--text-muted); transition: all 0.2s; }
+    .nav-tabs { display: flex; gap: 8px; background: var(--bg-nav); padding: 6px; border-radius: 14px; width: fit-content; border: 1px solid var(--border-main); }
+    .nav-tab { padding: 10px 24px; border-radius: 10px; border: none; background: none; cursor: pointer; font-weight: 600; font-size: 0.9rem; color: var(--text-muted); transition: all 0.2s; white-space: nowrap; }
     .nav-tab.active { background: var(--bg-active); color: var(--accent); box-shadow: 0 4px 12px rgba(0,0,0,0.1); border: 1px solid var(--border-main); }
     
     .admin-stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin-bottom: 40px; }
     .stat-card { background: var(--bg-card); padding: 25px; border-radius: 20px; border: 1.5px solid var(--border-main); display: flex; align-items: center; gap: 15px; box-shadow: var(--shadow); }
     .stat-icon { width: 48px; height: 48px; border-radius: 12px; display: flex; align-items: center; justify-content: center; background: rgba(56, 189, 248, 0.1); color: var(--accent); }
     
-    .table-container { background: var(--bg-card); border-radius: 24px; border: 1.5px solid var(--border-main); overflow-x: auto; overflow-y: hidden; box-shadow: var(--shadow); }
-    .admin-table { width: 100%; border-collapse: collapse; white-space: nowrap; }
+    .table-container { background: var(--bg-card); border-radius: 24px; border: 1.5px solid var(--border-main); overflow-x: auto; overflow-y: hidden; box-shadow: var(--shadow); width: 100%; -webkit-overflow-scrolling: touch; }
+    .admin-table { width: 100%; min-width: 900px; border-collapse: collapse; white-space: nowrap; }
     .admin-table th { background: var(--bg-nav); padding: 20px; text-align: left; font-size: 0.75rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.1em; border-bottom: 1px solid var(--border-main); }
     .admin-table td { padding: 18px 20px; border-bottom: 1px solid var(--border-muted); vertical-align: middle; font-size: 0.95rem; color: var(--text-main); }
     .admin-table tr:hover { background: var(--bg-nav); }
@@ -248,8 +248,10 @@ const AdminPanel = () => {
 
     @media (max-width: 768px) {
       .admin-container { padding: 20px 12px; }
-      .admin-header { flex-direction: column; align-items: flex-start; gap: 15px; }
-      .nav-tabs { overflow-x: auto; width: 100%; padding-bottom: 4px; border-radius: 8px; }
+      .admin-header { flex-direction: column; align-items: stretch; gap: 15px; }
+      .admin-add-btn { width: 100%; justify-content: center; }
+      .nav-tabs { overflow-x: auto; width: 100%; padding-bottom: 4px; border-radius: 8px; justify-content: flex-start; scrollbar-width: none; }
+      .nav-tabs::-webkit-scrollbar { display: none; }
       .admin-stats { grid-template-columns: 1fr; gap: 12px; }
       .form-grid { grid-template-columns: 1fr; gap: 12px; }
       .form-group.full { grid-column: span 1 !important; }
@@ -262,15 +264,15 @@ const AdminPanel = () => {
     <div className="admin-container">
       <style>{panelStyles}</style>
       
-      <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '30px', marginTop: '10px'}}>
-        <div className="nav-tabs" style={{marginBottom: 0}}>
+      <div className="admin-header">
+        <div className="nav-tabs">
           <button className={`nav-tab ${activeTab === "mentors" ? "active" : ""}`} onClick={() => setActiveTab("mentors")}>Mentors</button>
           <button className={`nav-tab ${activeTab === "students" ? "active" : ""}`} onClick={() => setActiveTab("students")}>Students</button>
           <button className={`nav-tab ${activeTab === "transactions" ? "active" : ""}`} onClick={() => setActiveTab("transactions")}>Transactions</button>
           <button className={`nav-tab ${activeTab === "admins" ? "active" : ""}`} onClick={() => setActiveTab("admins")}>Admins</button>
         </div>
         {activeTab === "mentors" && (
-          <button className="btn btn-primary" onClick={() => handleOpenModal()}>
+          <button className="btn btn-primary admin-add-btn" onClick={() => handleOpenModal()}>
             <Plus size={18} /> Add New Mentor
           </button>
         )}
