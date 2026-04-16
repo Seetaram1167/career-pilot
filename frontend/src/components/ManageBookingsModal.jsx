@@ -28,7 +28,7 @@ const ManageBookingsModal = ({ bookings = [], onClose, onRefresh }) => {
       
       const newSchedule = new Date(`${newDate}T${newTime}`);
       
-      const response = await fetch(`http://localhost:5000/api/mentors/bookings/${bookingId}/reschedule`, {
+      const response = await fetch(`/api/mentors/bookings/${bookingId}/reschedule`, {
         method: "PATCH",
         headers: {
           "Content-Type": "application/json",
@@ -63,7 +63,7 @@ const ManageBookingsModal = ({ bookings = [], onClose, onRefresh }) => {
       const user = JSON.parse(localStorage.getItem("user"));
       const token = user?.token;
 
-      const response = await fetch(`http://localhost:5000/api/mentors/bookings/${bookingId}`, {
+      const response = await fetch(`/api/mentors/bookings/${bookingId}`, {
         method: "DELETE",
         headers: {
           Authorization: `Bearer ${token}`,
@@ -96,7 +96,7 @@ const ManageBookingsModal = ({ bookings = [], onClose, onRefresh }) => {
       const user = JSON.parse(localStorage.getItem("user"));
       const token = user?.token;
 
-      const response = await fetch(`http://localhost:5000/api/mentors/bookings/${bookingId}`, {
+      const response = await fetch(`/api/mentors/bookings/${bookingId}`, {
         method: "DELETE",
         headers: {
           Authorization: `Bearer ${token}`,

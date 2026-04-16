@@ -8,7 +8,7 @@ export const syncUserProfile = async () => {
     const { token } = JSON.parse(storedUser);
     if (!token) return null;
 
-    const response = await axios.get("http://localhost:5000/api/auth/profile", {
+    const response = await axios.get("/api/auth/profile", {
       headers: {
         Authorization: `Bearer ${token}`,
       },

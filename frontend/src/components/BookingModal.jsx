@@ -36,7 +36,7 @@ const BookingModal = ({ mentor, onClose, onRefresh }) => {
     const schedule = new Date(`${formData.date}T${formData.time}`);
 
     try {
-      const response = await fetch("http://localhost:5000/api/mentors/bookings", {
+      const response = await fetch("/api/mentors/bookings", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

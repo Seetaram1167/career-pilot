@@ -103,13 +103,13 @@ const PaymentModal = ({ isOpen, onClose, onItemSelect, amount, itemTitle }) => {
 
       // 0. Get Public Key from Backend
       console.log("Fetching Public Key from backend...");
-      const { data: keyData } = await axios.get("http://localhost:5000/api/payment/key");
+      const { data: keyData } = await axios.get("/api/payment/key");
       console.log("Key received:", keyData.key ? "Yes" : "No");
 
       // 1. Create Order in Backend
       console.log("Creating Razorpay Order...");
       const numericAmount = parseFloat(String(amount).replace(/[^0-9.]/g, ''));
-      const { data } = await axios.post("http://localhost:5000/api/payment/order", {
+      const { data } = await axios.post("/api/payment/order", {
         amount: numericAmount,
       }, {
         headers: {
@@ -139,7 +139,7 @@ const PaymentModal = ({ isOpen, onClose, onItemSelect, amount, itemTitle }) => {
           console.log("Payment successful, verifying signature...");
           setStep("processing"); // Ensure we show processing during verification
           try {
-            const verifyRes = await axios.post("http://localhost:5000/api/payment/verify", {
+            const verifyRes = await axios.post("/api/payment/verify", {
               razorpay_order_id: response.razorpay_order_id,
               razorpay_payment_id: response.razorpay_payment_id,
               razorpay_signature: response.razorpay_signature,
@@ -230,7 +230,7 @@ const PaymentModal = ({ isOpen, onClose, onItemSelect, amount, itemTitle }) => {
 
     } catch (error) {
       console.error("Payment Error:", error);
-      alert(`Payment Error: ${error.message}\n\nTechnical details: ${error.response?.data?.message || 'Check if backend is running at http://localhost:5000'}`);
+      alert(`Payment Error: ${error.message}\n\nTechnical details: ${error.response?.data?.message || 'Check if backend is running at '}`);
       setStep("selection");
     }
   };

@@ -63,7 +63,7 @@ const Dashboard = () => {
 
   const fetchBookings = async (token) => {
     try {
-      const response = await fetch("http://localhost:5000/api/mentors/bookings/my", {
+      const response = await fetch("/api/mentors/bookings/my", {
         headers: {
           Authorization: `Bearer ${token}`,
         },
