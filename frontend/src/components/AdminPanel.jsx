@@ -184,6 +184,8 @@ const AdminPanel = () => {
 
       padding: 40px; 
       max-width: 1400px; 
+      width: 100%;
+      overflow-x: hidden;
       margin: 0 auto; 
       color: var(--text-main); 
       font-family: 'Outfit', sans-serif;
@@ -247,9 +249,11 @@ const AdminPanel = () => {
     .icon-btn.delete:hover { color: #f85149; background: rgba(248, 81, 73, 0.1); }
 
     @media (max-width: 768px) {
-      .admin-container { padding: 20px 12px; }
-      .admin-header { flex-direction: column; align-items: stretch; gap: 15px; }
-      .admin-add-btn { width: 100%; justify-content: center; }
+      .admin-container { padding: 20px 12px; overflow-x: hidden; width: 100vw; box-sizing: border-box; }
+      .admin-table { min-width: 100%; }
+      .table-container { overflow-x: auto; -webkit-overflow-scrolling: touch; border-radius: 16px; margin: 0 -12px; width: calc(100% + 24px); }
+      .admin-header { flex-direction: column; align-items: stretch; gap: 15px; width: 100%; }
+      .admin-add-btn { width: 100%; justify-content: center; color: #0F172A !important; font-weight: 800 !important; }
       .nav-tabs { overflow-x: auto; width: 100%; padding-bottom: 4px; border-radius: 8px; justify-content: flex-start; scrollbar-width: none; }
       .nav-tabs::-webkit-scrollbar { display: none; }
       .admin-stats { grid-template-columns: 1fr; gap: 12px; }
@@ -257,6 +261,7 @@ const AdminPanel = () => {
       .form-group.full { grid-column: span 1 !important; }
       .modal-card { padding: 24px; width: 100%; max-height: 90vh; overflow-y: auto; border-radius: 20px; }
       .details-grid { grid-template-columns: 1fr; }
+      .admin-table th, .admin-table td { padding: 12px 14px; font-size: 0.85rem; }
     }
   `;
 
