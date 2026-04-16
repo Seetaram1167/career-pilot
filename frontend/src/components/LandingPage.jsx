@@ -153,6 +153,33 @@ const LandingPage = () => {
     .landing-teaserContent p {
       margin-bottom: var(--spacing-xl);
     }
+
+    @media (max-width: 768px) {
+      .landing-heroSection {
+        padding: 4rem 1rem;
+      }
+      .landing-heroContent h1 {
+        font-size: 2.2rem;
+      }
+      .landing-heroContent p {
+        font-size: 1rem;
+        margin-bottom: var(--spacing-lg);
+      }
+      .landing-categoryBtn {
+        padding: 0.4rem 1rem;
+        font-size: 0.85rem;
+      }
+      .landing-exploreTeaser {
+        padding: var(--spacing-lg) var(--spacing-md);
+        margin: 0 var(--spacing-sm);
+      }
+      .landing-teaserContent h2 {
+        font-size: 1.5rem;
+      }
+      .landing-categoryRow {
+        gap: 8px;
+      }
+    }
   `;
 
   return (

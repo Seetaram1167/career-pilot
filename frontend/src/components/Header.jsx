@@ -315,12 +315,34 @@ const Header = () => {
       color: #EF4444;
     }
 
+    .header-auth-buttons {
+      display: flex;
+      gap: var(--spacing-sm);
+    }
     @media (max-width: 1250px) {
       .header-nav {
         display: none;
       }
       .mobile-menu-btn {
         display: flex !important;
+      }
+    }
+    @media (max-width: 768px) {
+      .header-auth-buttons {
+        display: none !important;
+      }
+      .headerContainer {
+        padding: 0 16px;
+      }
+      .logoText {
+        font-size: 1.4rem;
+        display: none; /* Hide text on very small screens to save space, let logo stand alone */
+      }
+      .header-actions {
+        gap: 8px;
+      }
+      .theme-toggle-btn, .mobile-menu-btn {
+        padding: 8px;
       }
     }
 
@@ -503,7 +525,7 @@ const Header = () => {
                 )}
               </div>
             ) : (
-              <div style={{ display: 'flex', gap: 'var(--spacing-sm)' }}>
+              <div className="header-auth-buttons">
                 <Link to="/login" className="btn btn-secondary" style={{ borderRadius: '10px' }}>Log In</Link>
                 <Link to="/signup" className="btn btn-primary" style={{ borderRadius: '10px' }}>Sign Up</Link>
               </div>
